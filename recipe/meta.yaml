@@ -11,7 +11,12 @@ source:
 
 build:
   number: 0
-  skip: true  # [not linux]
+  script:
+    - cd make
+    - make GCC
+    - mkdir -p $PREFIX/bin/
+    - cp ./Ostrich $PREFIX/bin/ostrich  # [not win]
+    - cp ./Ostrich.exe $PREFIX/bin/Ostrich.exe  # [win]
 
 requirements:
   build:
@@ -20,7 +25,7 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/bin/ostrich
+    - test -f $PREFIX/bin/ostrich  # [not win]
     - ostrich
 
 about:

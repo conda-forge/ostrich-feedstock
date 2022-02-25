@@ -1,0 +1,11 @@
+--- make/makefile	2022-02-25 16:43:09.505345018 -0500
++++ make/makefile.patch	2022-02-25 16:43:46.329462466 -0500
+@@ -43,7 +43,7 @@
+ 	rm -f *.o
+ 
+ GCC:	$(SRC_FILES_CPP) $(SRC_FILES_C)
+-	g++ -std=c++17 -I$(INCLUDE_DIR) -I$(MPI_MEM_INCLUDE) $(SRC_FILES_CPP) $(MEM_FILES_C) -ldl -lstdc++fs -o Ostrich
++	$(CXX) -std=c++17 -I$(INCLUDE_DIR) -I$(MPI_MEM_INCLUDE) $(SRC_FILES_CPP) $(MEM_FILES_C) -ldl -lstdc++fs -o Ostrich
+ 	rm -f *.o
+ 
+ GCC_DB:	$(SRC_FILES_CPP) $(SRC_FILES_C)
