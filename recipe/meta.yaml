@@ -10,7 +10,7 @@ source:
   sha256: da5ed2f34254fc75c9d16e541788280dc1a128db1d0608f28ee2eae95f901396
 
 build:
-  number: 0
+  number: 2
   script:
     - cd make
     - make GCC
