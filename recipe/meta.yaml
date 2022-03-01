@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/usbr/{{ name|lower }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: da5ed2f34254fc75c9d16e541788280dc1a128db1d0608f28ee2eae95f901396
+  patches:
+    - 0001-fix-makefile.patch
 
 build:
   number: 2
