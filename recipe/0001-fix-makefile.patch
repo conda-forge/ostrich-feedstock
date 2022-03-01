@@ -1,11 +1,20 @@
---- original/make/makefile	2022-02-25 16:43:09.505345018 -0500
-+++ patched/make/makefile	2022-02-25 16:43:46.329462466 -0500
-@@ -43,7 +43,7 @@
+diff --color -ruN make/makefile make_patched/makefile
+--- make/makefile	2022-03-01 11:53:08.114900355 -0500
++++ make_patched/makefile	2022-03-01 11:56:05.932061381 -0500
+@@ -42,9 +42,8 @@
+ 	icpc  -std=c++17 -I$(INCLUDE_DIR) -I$(MPI_MEM_INCLUDE) $(SRC_FILES_CPP) $(MEM_FILES_C) -ldl -lstdc++fs -o Ostrich
  	rm -f *.o
  
- GCC:	$(SRC_FILES_CPP) $(SRC_FILES_C)
+-GCC:	$(SRC_FILES_CPP) $(SRC_FILES_C)
 -	g++ -std=c++17 -I$(INCLUDE_DIR) -I$(MPI_MEM_INCLUDE) $(SRC_FILES_CPP) $(MEM_FILES_C) -ldl -lstdc++fs -o Ostrich
-+	$(CXX) -std=c++17 -I$(INCLUDE_DIR) -I$(MPI_MEM_INCLUDE) $(SRC_FILES_CPP) $(MEM_FILES_C) -ldl -lstdc++fs -o Ostrich
- 	rm -f *.o
+-	rm -f *.o
++build:	$(SRC_FILES_CPP) $(SRC_FILES_C)
++	(CXX) -std=c++17 -I$(INCLUDE_DIR) -I$(MPI_MEM_INCLUDE) $(SRC_FILES_CPP) $(MEM_FILES_C) -ldl -lstdc++fs -o Ostrich
  
  GCC_DB:	$(SRC_FILES_CPP) $(SRC_FILES_C)
+ 	g++ -std=c++17 -I$(INCLUDE_DIR) -I$(MPI_DISK_INCLUDE) $(SRC_FILES_CPP) $(DISK_FILES_C) -ldl -lstdc++fs -o OstrichDB
+@@ -56,4 +55,3 @@
+ 
+ clean:
+ 	rm -f *.o
+-
