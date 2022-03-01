@@ -6,5 +6,5 @@ diff -ruN make/makefile make_patched/makefile
  	rm -f *.o
  
 +build:	$(SRC_FILES_CPP) $(SRC_FILES_C)
-+	$(CXX) -I$(INCLUDE_DIR) -I$(MPI_MEM_INCLUDE) $(SRC_FILES_CPP) $(MEM_FILES_C) -o Ostrich
++	$(CXX) -std=c++17 -I$(INCLUDE_DIR) -I$(MPI_MEM_INCLUDE) $(SRC_FILES_CPP) $(MEM_FILES_C) -ldl -lstdc++fs -o Ostrich
 +
