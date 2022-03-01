@@ -15,7 +15,7 @@ build:
   number: 2
   script:
     - cd make
-    - make GCC
+    - make build
     - mkdir -p $PREFIX/bin/
     - cp ./Ostrich $PREFIX/bin/ostrich  # [not win]
     - cp ./Ostrich.exe $PREFIX/bin/Ostrich.exe  # [win]
