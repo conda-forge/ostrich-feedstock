@@ -3,6 +3,6 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2017
+- m2w64-gcc
 target_platform:
 - win-64
