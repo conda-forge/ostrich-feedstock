@@ -8,10 +8,17 @@ package:
 source:
   url: https://github.com/usbr/{{ name|lower }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: da5ed2f34254fc75c9d16e541788280dc1a128db1d0608f28ee2eae95f901396
+  patches:
+    - 0001-makefile-fix.patch
 
 build:
-  number: 1
-  skip: true  # [win]
+  number: 2
+  script:
+    - cd make
+    - make build
+    - mkdir -p $PREFIX/bin/
+    - cp ./Ostrich $PREFIX/bin/ostrich  # [not win]
+    - cp ./Ostrich.exe $PREFIX/bin/Ostrich.exe  # [win]
 
 requirements:
   build:
@@ -20,7 +27,7 @@ requirements:
 
 test:
   commands:
-    - test -f $PREFIX/bin/ostrich
+    - test -f $PREFIX/bin/ostrich  # [not win]
     - ostrich
 
 about:
